@@ -45,7 +45,10 @@ Each part of the app serves a particular purpose:
 - below that, the **timeline**
   - tools on the top can modify the playback of the attack
   - the timeline itself can be clicked to select the attack window you wish to edit
-- below that, the **metadata** (the dark bar below the timeline)
+  - you can navigate to individual frames by clicking in/on the timeline
+  - click on a window and press one of the plus icons to add a new window
+  - click on a window and press the trash icon to delete that window
+- below that, the **metadata** (the second dark bar below the timeline)
   - can be used to give the current window a name and color
   - can be used to give the selected hitbox a name and color
 - below that, the **main stage**
@@ -61,12 +64,16 @@ Each part of the app serves a particular purpose:
 hitboxes can be created by clicking and dragging in the main stage when the respective tool is selected.
 The bounding box of the sprite is shown as a black border. The sprite itself can be repositioned by click + dragging if the "lock position" box is unchecked.
 
-etc etc.
+to focus on what you want to edit, click on it while using the pan tool. Over on the right you can adjust whatever values you want.
 
-click 
+If you want more organization, edit the metadata of hitboxes and windows (under the timeline) to give them names and/or adjust their color.
 
-### Exporting
+### Importing and Exporting
 
+- "save to browser" will save your progress to the browser, allowing you to come back later with "load from browser" (as long as you don't clear your browser storage).
+- to export to text that you can copy/paste, click the "export to GML" button. This will allow you to use the 3 buttons under it.
+  - these will generate the code for the attack in their respective file
+- "export/import WIP" will save a file called "WIP" to your default downloads location. This file can be opened back up with "import WIP"
 
 ---
 
@@ -90,6 +97,15 @@ there are keyboard shortcuts!
 
 ---
 
+### 1/15/2021
+
+has it really been over a year since I touched this?? ... wow
+
+- (+) updated timeline
+- fixed x/y positioning on everything - things should be accurate now hurra
+- fixed bug involving overzealous keyboard shortcuts
+- made hitbox placement, movement, etc much nicer
+
 ### 10/8/2019
 
 - (+) added support for sound playback
@@ -99,17 +115,6 @@ there are keyboard shortcuts!
   - seemed unnecessary and took up space
 - fixed bug where exporting didn't use the attack index names properly
 - fixed bug where sound exports didn't export with "asset_get()"
-
-Upcoming features:
-
-- an in-browser filesystem
-- a more flexible way of exporitng code
-- built-in presets
-- sound effect uploading
-
----
-
-# FAQs
 
 ---
 `;
