@@ -107,7 +107,7 @@ export default {
         type: 'number',
     },
     HG_BASE_KNOCKBACK: {
-        value: 0,
+        value: 10,
         description: stripIndent`
         The amount of knockback the move applies to an opponent regardless of their damage
         `,

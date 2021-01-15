@@ -12,11 +12,11 @@ export let winProps;
 
 export let updateStates;
 
-    let currentFrameLabel;
+  let currentFrameLabel;
 	let isCurrentFrameFocused = false;
 	let fpsMonitor = 0;
 
-    const startPlaying = () => {
+  const startPlaying = () => {
 		anim.playing = !anim.playing;
 		if (anim.playing) play();
 	}
@@ -27,7 +27,7 @@ export let updateStates;
 			fpsMonitor++;
 			if (fpsMonitor >= (1 / anim.playSpeed)) {
 				fpsMonitor = 0;
-				if (anim.animFrame + 1 === anim.duration) { 
+				if (anim.animFrame + 1 === anim.duration) {
 					anim.animFrame = 0;
 					if (!anim.loop) { anim.playing = false; }
 				}
@@ -48,7 +48,7 @@ export let updateStates;
 		updateStates.length = true;
 		updateStates.frames = true;
 	}
-    
+
 </script>
 
 <style>
@@ -61,7 +61,7 @@ export let updateStates;
 	}
 
 	#current-frame-label {
-		display: inline-block; 
+		display: inline-block;
 		text-align: right;
 		border-radius: 2px;
 		border: 1px solid #DDD;
@@ -93,7 +93,7 @@ export let updateStates;
 		display: grid;
 		color: white;
     }
-    
+
     #current-frame {
 		opacity: 0;
 		position: fixed;
@@ -101,7 +101,7 @@ export let updateStates;
 		right: 0;
 		pointer-events: none;
     }
-    
+
     .option-group {
 		position: absolute;
 		top: 2px;
@@ -110,7 +110,7 @@ export let updateStates;
 		font-size: inherit;
 		line-height: 20px;
     }
-    
+
     button[disabled] {
 		background-color: transparent;
 		border: 1px dashed #DDD;
@@ -120,7 +120,7 @@ export let updateStates;
 
 <div id="timeline-controls">
 		<div class="option-group" style="justify-self: left">
-			<input 
+			<input
 				type="number"
 				id="current-frame"
 				bind:value={anim.animFrame}
@@ -128,9 +128,9 @@ export let updateStates;
 				on:blur={() => isCurrentFrameFocused = false}
 				min="0" max="{anim.duration - 1}">
 			<p style="width: 150px; margin: 0; display: inline-block">
-				frame: <label 
-					bind:this={currentFrameLabel} 
-					style="width: {anim.duration.toString().length * 10 + 10}px" 
+				frame: <label
+					bind:this={currentFrameLabel}
+					style="width: {anim.duration.toString().length * 10 + 10}px"
 					id="current-frame-label"
 					class={(isCurrentFrameFocused) ? 'active' : ''}
 					for="current-frame"
@@ -138,7 +138,7 @@ export let updateStates;
 					{anim.animFrame + 1}
 				</label> / {anim.duration};
 			</p>
-			
+
 			<div style="width: 400px; margin: 0; display: inline-block">
 				window: {anim.windowIndex + 1} / {windows.length}
 				<button on:click={handleWindowAddition}><i class="material-icons">add</i></button>
@@ -177,7 +177,7 @@ export let updateStates;
 				<p style="justify-self: center; align-self: center; margin: 0; position: absolute;">{win.meta.name}</p>
 			</div>
 		{/each}
-		<div id="playhead" 
+		<div id="playhead"
 			style="
 				height: 100%;
 				width: 2px;
@@ -192,7 +192,7 @@ export let updateStates;
 		<div class="option-group">
 			<label style="display: inline-block">
 				name:
-				{#if editingMode === 'window'} 
+				{#if editingMode === 'window'}
 					<input type="text" bind:value={windows[anim.windowIndex].meta.name}>
 				{:else if editingMode === 'hitbox'}
 					<input type="text" bind:value={hitboxes[hitboxes.selected].meta.name}>
@@ -200,11 +200,11 @@ export let updateStates;
 			</label>
 			<label style="display: inline-block">
 				color:
-				{#if editingMode === 'window'} 
+				{#if editingMode === 'window'}
 					<input type="text" bind:value={windows[anim.windowIndex].meta.color}>
 				{:else if editingMode === 'hitbox'}
 					<input type="text" bind:value={hitboxes[hitboxes.selected].meta.color}>
-				{/if}			
+				{/if}
 			</label>
 		</div>
 	</div>
